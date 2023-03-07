@@ -65,7 +65,64 @@ namespace AppBuscaCep.Service
             return arr_logradouro;
         }
 
-   
+        public static async Task<List<Cidade>> GetCidadeByUf(int id_cidade)
+        {
+            List<Cidade> arr_cidade = new List<Cidade>();
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/cidade/by-uf?" + id_cidade);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    arr_cidade = JsonConvert.DeserializeObject<List<Cidade>>(json);
+                }
+                else
+                    throw new Exception(response.RequestMessage.Content.ToString());
+            }
+            return arr_cidade;
+        }
+
+        public static async Task<List<Cidade>> GetCidadesByEstado(string uf)
+        {
+            List<Cidade> arr_cidades = new List<Cidade>();  
+            using (HttpClient client = new HttpClient()) 
+            {
+                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/cidade/by-uf?uf=" + uf);
+                if (response.IsSuccessStatusCode) 
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;  
+
+                    arr_cidades = JsonConvert.DeserializeObject<List<Cidade>>(json);   
+                }
+                else 
+                    throw new Exception(response.RequestMessage.Content.ToString());
+            }
+            return arr_cidades;
+        }
+
+        public static async Task<List<Cep>> GetCepsByLogradouro(string logradouro)
+        {
+            List<Cep> arr_cep = new List<Cep>();
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/cep/by-logradouro?logradouro=" + logradouro);
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+
+                    arr_cep = JsonConvert.DeserializeObject<List<Cep>>(json);
+                }
+                else
+                    throw new Exception(response.RequestMessage.Content.ToString());
+            }
+            return arr_cep;
+        }
+
+
+
+
+
 
     }
 }

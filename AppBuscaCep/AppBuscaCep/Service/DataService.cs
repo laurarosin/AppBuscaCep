@@ -34,7 +34,7 @@ namespace AppBuscaCep.Service
             List<Bairro> arr_bairros = new List<Bairro>();
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/bairro/by-cidade?id_cidade" + id_cidade);
+                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/bairro/by-cidade?id_cidade=" + arr_bairros);
 
                     if (response.IsSuccessStatusCode) 
                 {
@@ -65,12 +65,12 @@ namespace AppBuscaCep.Service
             return arr_logradouro;
         }
 
-        public static async Task<List<Cidade>> GetCidadeByUf(int id_cidade)
+        public static async Task<List<Cidade>> GetCidadeByUf(string UF)
         {
             List<Cidade> arr_cidade = new List<Cidade>();
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/cidade/by-uf?" + id_cidade);
+                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/cidade/by-uf?uf=" + UF);
 
                 if (response.IsSuccessStatusCode)
                 {

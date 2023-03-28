@@ -27,11 +27,6 @@ namespace AppBuscaCep.View
            
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        { 
-
-        }
-
         private async void pck_estado_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -69,7 +64,10 @@ namespace AppBuscaCep.View
                 await DisplayAlert("Ops", ex.Message, "OK");
             }
         }
-        
 
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

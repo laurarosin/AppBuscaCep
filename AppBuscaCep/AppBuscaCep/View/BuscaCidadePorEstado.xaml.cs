@@ -15,6 +15,7 @@ namespace AppBuscaCep.View
         public EnderecoPorCidade()
         {
             InitializeComponent();
+            lst_cidade.ItemsSource = lst_cidade;
         }
 
         

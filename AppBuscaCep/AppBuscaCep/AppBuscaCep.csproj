@@ -17,6 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="View\BuscaEnderecoPorCep.xaml.cs">
+      <DependentUpon>BuscaEnderecoPorCep.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\BuscaCidadePorEstado.xaml.cs">
+      <DependentUpon>BuscaCidadePorEstado.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Menu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -26,13 +35,10 @@
     <EmbeddedResource Update="View\BuscaCepPorLogradouro.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\EnderecoPorCep.xaml">
+    <EmbeddedResource Update="View\BuscaEnderecoPorCep.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\EnderecoPorCidade.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="View\LogradouroPorBairro.xaml">
+    <EmbeddedResource Update="View\BuscaCidadePorEstado.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Menu.xaml">

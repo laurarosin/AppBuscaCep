@@ -19,11 +19,8 @@
                         SelectedIndexChanged="pck_estado_SelectedIndexChanged"
                         ItemDisplayBinding="{Binding descricao}"
                         Title="Selecione a Cidade:">
-                    
-                </Picker>
-                <SearchBar x:Name="txt_cidade" Placeholder="Qual é sua rua?"/>
-                <Button Text="Buscar" Clicked="Button_Clicked"/>
 
+                </Picker>
             </StackLayout>
 
             <ActivityIndicator x:Name="carregando" IsRunning="False"/>

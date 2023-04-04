@@ -16,7 +16,7 @@ namespace AppBuscaCep.Service
             Endereco end;
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/endereco/by-cep?cep=" + cep);
+                HttpResponseMessage response = await client.GetAsync("http://10.0.2.2:8000/endereco/by-cep?cep=" + cep);
                 
                 if (response.IsSuccessStatusCode)
                 {
@@ -34,7 +34,7 @@ namespace AppBuscaCep.Service
             List<Bairro> arr_bairros = new List<Bairro>();
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/bairro/by-cidade?id_cidade=" + arr_bairros);
+                HttpResponseMessage response = await client.GetAsync("http://10.0.2.2:8000/bairro/by-cidade?id_cidade=" + arr_bairros);
 
                     if (response.IsSuccessStatusCode) 
                 {
@@ -52,7 +52,7 @@ namespace AppBuscaCep.Service
             List<Logradouro> arr_logradouro = new List<Logradouro>();
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/bairro/by-cidade?id_cidade" + id_cidade + "&bairro" + bairro);
+                HttpResponseMessage response = await client.GetAsync("http://10.0.2.2:8000/bairro/by-cidade?id_cidade" + id_cidade + "&bairro" + bairro);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -70,7 +70,7 @@ namespace AppBuscaCep.Service
             List<Cidade> arr_cidade = new List<Cidade>();
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/cidade/by-uf?uf=" + UF);
+                HttpResponseMessage response = await client.GetAsync("http://10.0.2.2:8000/cidade/by-uf?uf=" + UF);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -88,7 +88,7 @@ namespace AppBuscaCep.Service
             List<Cidade> arr_cidades = new List<Cidade>();  
             using (HttpClient client = new HttpClient()) 
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.modela.com.br/cidade/by-uf?uf=" + uf);
+                HttpResponseMessage response = await client.GetAsync("http://10.0.2.2:8000/cidade/by-uf?uf=" + uf);
                 if (response.IsSuccessStatusCode) 
                 {
                     string json = response.Content.ReadAsStringAsync().Result;  
@@ -106,7 +106,7 @@ namespace AppBuscaCep.Service
             List<Cep> arr_cep = new List<Cep>();
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/cep/by-logradouro?logradouro=" + logradouro);
+                HttpResponseMessage response = await client.GetAsync("http://10.0.2.2:8000/cep/by-logradouro?logradouro=" + logradouro);
                 if (response.IsSuccessStatusCode)
                 {
                     string json = response.Content.ReadAsStringAsync().Result;
